@@ -1,18 +1,16 @@
 from pdfgen import creapdf
-from data_elaboration import data_elaboration
 from data_import import data_import
-
+import os
 
 if __name__ == "__main__":
-    raw_data = data_import("Discussion_Leading_Feedback_Participant_Adar_.csv")
+    position = str(os.getcwd)
+    print("Insert file name <file.csv>:")
+    file_name = str(input())
+    full_path = os.path.join(position, file_name)
+    output_directory = os.path.join(position, "pdf")
+    raw_data = data_import(file_name)
     student_names = raw_data["Q02_Leader_name"].drop_duplicates()
-
     for student in student_names:
         df = raw_data[raw_data['Q02_Leader_name'] == student]
         data = df.to_dict(orient='list')
         creapdf(data)
-        
-
-    #for riga in raw_data.itertuples():
-    #    data = data_elaboration(riga)
-    #    creapdf(data)
