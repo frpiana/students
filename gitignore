@@ -1,3 +1,5 @@
-ambiente
+ambiente/
+__pycache__/
+pdf/
+.DS_Store
 Discussion_Leading_Feedback_Participant_Adar_.csv
-pdf
