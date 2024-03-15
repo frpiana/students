@@ -1,5 +1,11 @@
+# Folders
 ambiente/
 __pycache__/
 pdf/
+src\data
+
+# MacOS files
 .DS_Store
+
+# Data files
 Discussion_Leading_Feedback_Participant_Adar_.csv
