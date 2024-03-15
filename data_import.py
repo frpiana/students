@@ -1,7 +1,7 @@
 import pandas as pd
 
 def data_import(file_name):
-    data_frame = pd.read_csv(file_name)
+    data_frame = pd.read_csv(file_name, encoding='utf-8')
     data_frame.columns = ["Odpověď",
                           "Odesláno",
                           "Instituce",

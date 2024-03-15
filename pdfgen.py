@@ -33,7 +33,7 @@ def creapdf(data):
     leftIndent=22,    # Indentazione del testo rispetto al bullet
     spaceBefore=5,    # Spaziatura prima del paragrafo
     spaceAfter=5      # Spaziatura dopo il paragrafo
-)
+    )
 
     if not os.path.exists("pdf"):
         os.makedirs("pdf")
@@ -45,22 +45,22 @@ def creapdf(data):
     contenuto = []
 
     contenuto.append(Paragraph(
-        f"Leader: {data["Q02_Leader_name"][0]}", title_style
+        f"Leader: {data['Q02_Leader_name'][0]}", title_style
         ))
     
     contenuto.append(Paragraph(
         "The group leader...", question_style 
     ))
     contenuto.append(Paragraph(
-        f"...was well-prepared for the discussion: {np.mean(data["Q03_Preparation"])}"
+        f"...was well-prepared for the discussion: {np.mean(data['Q03_Preparation'])}"
         ))
 
     contenuto.append(Paragraph(
-        f"...opened the session with a clear introduction of the topic: {np.mean(data["Q04_Introduction"])}"
+        f"...opened the session with a clear introduction of the topic: {np.mean(data['Q04_Introduction'])}"
         ))
 
     contenuto.append(Paragraph(
-        f"...got everyone to participate: {np.mean(data["Q05_Inclusion"])}"
+        f"...got everyone to participate: {np.mean(data['Q05_Inclusion'])}"
         ))
     
     contenuto.append(Paragraph(
