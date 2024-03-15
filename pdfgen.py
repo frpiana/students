@@ -1,49 +1,30 @@
 from reportlab.lib.pagesizes import A4
 from reportlab.platypus import SimpleDocTemplate, Paragraph
-from reportlab.lib.styles import ParagraphStyle
-import os
-import numpy as np
+from styles import title_style_definition, question_style_definition, bullet_style_definition
+from os import makedirs
+from os.path import exists, join
+from numpy import mean
 
 def creapdf(data):
-
-    title_style = ParagraphStyle(
-    name='TitleStyle',
-    fontSize=14,
-    leading=16,  # Spaziatura tra le righe
-    spaceBefore=20,  # Spaziatura prima del paragrafo
-    spaceAfter=20,   # Spaziatura dopo il paragrafo
-    fontName='Helvetica-Bold'  # Tipo di carattere in grassetto
-    )
-
-    question_style = ParagraphStyle(
-    name='QuestionStyle',
-    fontSize=12,
-    leading=8,  # Spaziatura tra le righe
-    spaceBefore=12,  # Spaziatura prima del paragrafo
-    spaceAfter=12,   # Spaziatura dopo il paragrafo
-    fontName='Helvetica-Bold'  # Tipo di carattere in grassetto
-    )
-
-    bullet_style = ParagraphStyle(
-    name='BulletStyle',
-    bulletFontName='Helvetica',
-    bulletText='-',   # Simbolo del bullet (trattino)
-    bulletFontSize=12,
-    bulletIndent=10,  # Indentazione del bullet rispetto al margine sinistro
-    leftIndent=22,    # Indentazione del testo rispetto al bullet
-    spaceBefore=5,    # Spaziatura prima del paragrafo
-    spaceAfter=5      # Spaziatura dopo il paragrafo
-    )
-
-    if not os.path.exists("pdf"):
-        os.makedirs("pdf")
     
-    title = data["Q02_Leader_name"][0].strip().replace(" ", "_")+".pdf"
-    file_path = os.path.join("pdf", title)
+    # Formatting stiles definition
+    title_style = title_style_definition()
+    question_style = question_style_definition()
+    bullet_style = bullet_style_definition()
 
+    # Creation of the folder for the building output
+    if not exists("pdf"):
+        makedirs("pdf")
+    
+    # File name and file path identification for the building output
+    title = data["Q02_Leader_name"][0].strip().replace(" ", "_")+".pdf"
+    file_path = join("pdf", title)
+
+    # Creation of the PDF template and the container for the text paragrafs
     documento = SimpleDocTemplate(file_path, pagesizes=A4)
     contenuto = []
 
+    # Filling of the paragraphs
     contenuto.append(Paragraph(
         f"Leader: {data['Q02_Leader_name'][0]}", title_style
         ))
@@ -52,15 +33,15 @@ def creapdf(data):
         "The group leader...", question_style 
     ))
     contenuto.append(Paragraph(
-        f"...was well-prepared for the discussion: {np.mean(data['Q03_Preparation'])}"
+        f"...was well-prepared for the discussion: {mean(data['Q03_Preparation'])}"
         ))
 
     contenuto.append(Paragraph(
-        f"...opened the session with a clear introduction of the topic: {np.mean(data['Q04_Introduction'])}"
+        f"...opened the session with a clear introduction of the topic: {mean(data['Q04_Introduction'])}"
         ))
 
     contenuto.append(Paragraph(
-        f"...got everyone to participate: {np.mean(data['Q05_Inclusion'])}"
+        f"...got everyone to participate: {mean(data['Q05_Inclusion'])}"
         ))
     
     contenuto.append(Paragraph(
@@ -86,5 +67,5 @@ def creapdf(data):
         if frase != "nan":
             contenuto.append(Paragraph(str(frase), bullet_style))
         
-
+    # Building of the PDF doument writing the container in the template
     documento.build(contenuto)
