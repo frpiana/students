@@ -2,8 +2,7 @@
 ambiente/
 __pycache__/
 pdf/
-src\data
-
+src/data/
 # MacOS files
 .DS_Store
 
