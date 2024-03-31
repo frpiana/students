@@ -32,22 +32,23 @@ def creapdf(data):
     
     contenuto.append(Paragraph(
         "The group leader...", question_style 
-    ))
+        ))
+    
     contenuto.append(Paragraph(
         f"...was well-prepared for the discussion: {mean(data['Q03_Preparation']):.1f}", regular_style
         ))
-
+    
     contenuto.append(Paragraph(
         f"...opened the session with a clear introduction of the topic: {mean(data['Q04_Introduction']):.1f}", regular_style
         ))
-
+    
     contenuto.append(Paragraph(
         f"...got everyone to participate: {mean(data['Q05_Inclusion']):.1f}", regular_style
         ))
     
     contenuto.append(Paragraph(
         "For me, the most interesting question was:", question_style
-    ))
+        ))
 
     for frase in data["Q06_Fav_question"]:
         contenuto.append(Paragraph(frase, bullet_style))
