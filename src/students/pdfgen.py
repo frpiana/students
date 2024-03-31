@@ -1,6 +1,6 @@
 from reportlab.lib.pagesizes import A4
 from reportlab.platypus import SimpleDocTemplate, Paragraph
-from styles import title_style_definition, question_style_definition, bullet_style_definition
+from styles import title_style_definition, question_style_definition, bullet_style_definition, regular_style_definition
 from os import makedirs
 from os.path import exists, join
 from numpy import mean
@@ -11,6 +11,7 @@ def creapdf(data):
     title_style = title_style_definition()
     question_style = question_style_definition()
     bullet_style = bullet_style_definition()
+    regular_style = regular_style_definition()
 
     # Creation of the folder for the building output
     if not exists("pdf"):
@@ -33,15 +34,15 @@ def creapdf(data):
         "The group leader...", question_style 
     ))
     contenuto.append(Paragraph(
-        f"...was well-prepared for the discussion: {mean(data['Q03_Preparation'])}"
+        f"...was well-prepared for the discussion: {mean(data['Q03_Preparation']):.1f}", regular_style
         ))
 
     contenuto.append(Paragraph(
-        f"...opened the session with a clear introduction of the topic: {mean(data['Q04_Introduction'])}"
+        f"...opened the session with a clear introduction of the topic: {mean(data['Q04_Introduction']):.1f}", regular_style
         ))
 
     contenuto.append(Paragraph(
-        f"...got everyone to participate: {mean(data['Q05_Inclusion'])}"
+        f"...got everyone to participate: {mean(data['Q05_Inclusion']):.1f}", regular_style
         ))
     
     contenuto.append(Paragraph(
