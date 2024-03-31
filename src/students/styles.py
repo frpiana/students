@@ -2,8 +2,8 @@ from reportlab.lib.styles import ParagraphStyle
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase import pdfmetrics
 
-pdfmetrics.registerFont(TTFont("Garamond_regular", r"src\fonts\GARA.ttf"))
-pdfmetrics.registerFont(TTFont("Garamond_bold", r"src\fonts\GARABD.TTF"))
+pdfmetrics.registerFont(TTFont("Garamond_regular", "GARA.ttf"))
+pdfmetrics.registerFont(TTFont("Garamond_bold", "GARABD.ttf"))
 
 def title_style_definition():
     title_style_set = ParagraphStyle(
