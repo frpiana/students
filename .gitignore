@@ -4,7 +4,6 @@ __pycache__/
 pdf/
 src/data/
 build/
-dist/
 
 # MacOS files
 .DS_Store

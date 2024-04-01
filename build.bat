@@ -7,4 +7,4 @@ rem Nome dell'eseguibile da generare
 set exe_name="students"
 
 rem Comando per la build
-pyinstaller --onefile -n %exe_name% %font_options% %main_script%
+pyinstaller --onefile -n %exe_name% %main_script%
