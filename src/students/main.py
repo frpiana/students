@@ -1,5 +1,6 @@
 from pdfgen import creapdf
 from data_import import data_import
+from pandas import DataFrame
 
 if __name__ == "__main__":
     
@@ -20,9 +21,8 @@ if __name__ == "__main__":
     
     # The following 'for' cycle generates the pdf files one for any student
     for student in student_names:
-
         # A subset dataframe 'df' is created with the records of a single student
-        df = raw_data[raw_data['Q02_Leader_name'] == student]
+        df = raw_data[raw_data['Q02_Leader_name'] == student].drop_duplicates(subset='ID')
         # The dataframe is converted in a dictionary of lists
         data = df.to_dict(orient='list')
         creapdf(data)
