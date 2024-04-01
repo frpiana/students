@@ -24,18 +24,18 @@ The columns of the original table should be the following:
 17. "Q08_Negative feedback"
 
 ## How to install the program
-The file _student.exe_ is in the _dist_ folder of the repository. Copy it in a folder of the hard disk, in example: _"C:\Users\user_name\Documents\executables"_.
+The file _student.exe_ is in the _dist_ folder of the repository. Copy it in a folder of the hard disk, in example: _"C:\Users\user_name\Documents\executables"_. The folder names of the path should not contain any spaces.
 
 From the start menú search for "Edit the system enviroment variables for you account".
 
 In the table "User variables" select the variable _Path_ and clic on _Edit_.
 
-In the window "Edit enviroment variable" click on _New_ and paste the path to the folder of the file _students.exe_.
+In the window "Edit enviroment variable" click on _New_ and paste the path of the folder of the file _students.exe_.
 
 ## How to use the program
-In the folder were the _file.csv_ is saved click with the right bottom of the mouse and select "Open in terminal".
+In the folder where the _file.csv_ is saved click with the right button of the mouse and select "Open in terminal".
 
-In the terminal digit the program name:
+In the terminal type the program name:
 ```bash
 students
 ```
