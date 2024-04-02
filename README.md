@@ -33,7 +33,7 @@ In the table "User variables" select the variable _Path_ and clic on _Edit_.
 In the window "Edit enviroment variable" click on _New_ and paste the path of the folder of the file _students.exe_.
 
 ## How to use the program
-In the folder where the _file.csv_ is saved click with the right button of the mouse and select "Open in terminal".
+In the folder where the _file.csv_ is saved click with the right button of the mouse and select "Open in terminal". Also thess folder names of the path should not contain any spaces to prevent bugs.
 
 In the terminal type the program name:
 ```bash
