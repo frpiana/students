@@ -1,25 +1,28 @@
 from reportlab.lib.pagesizes import A4
 from reportlab.platypus import SimpleDocTemplate, Paragraph
+from reportlab.lib.styles import ParagraphStyle
 from styles import title_style_definition, question_style_definition, bullet_style_definition, regular_style_definition
 from os import makedirs
 from os.path import exists, join
 from numpy import mean
+from pandas import DataFrame
 
-def creapdf(data):
+
+def creapdf(data: DataFrame) -> None:
     
     # Formatting stiles definition
-    title_style = title_style_definition()
-    question_style = question_style_definition()
-    bullet_style = bullet_style_definition()
-    regular_style = regular_style_definition()
+    title_style: ParagraphStyle = title_style_definition()
+    question_style: ParagraphStyle = question_style_definition()
+    bullet_style: ParagraphStyle = bullet_style_definition()
+    regular_style: ParagraphStyle = regular_style_definition()
 
     # Creation of the folder for the building output
     if not exists("pdf"):
         makedirs("pdf")
     
     # File name and file path identification for the building output
-    title = data["Q02_Leader_name"][0].strip().replace(" ", "_")+".pdf"
-    file_path = join("pdf", title)
+    title: str = data["Q02_Leader_name"][0].strip().replace(" ", "_")+".pdf"
+    file_path: str = join("pdf", title)
 
     # Creation of the PDF template and the container for the text paragrafs
     documento = SimpleDocTemplate(file_path, pagesizes=A4)

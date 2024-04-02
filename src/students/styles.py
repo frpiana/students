@@ -5,7 +5,7 @@ from reportlab.pdfbase import pdfmetrics
 pdfmetrics.registerFont(TTFont("Garamond_regular", "GARA.ttf"))
 pdfmetrics.registerFont(TTFont("Garamond_bold", "GARABD.ttf"))
 
-def title_style_definition():
+def title_style_definition() -> ParagraphStyle:
     title_style_set = ParagraphStyle(
         name='TitleStyle',
         fontSize = 14,                        # Dimensione del carattere
@@ -16,7 +16,7 @@ def title_style_definition():
         )
     return title_style_set
 
-def question_style_definition():
+def question_style_definition() -> ParagraphStyle:
     question_style_set = ParagraphStyle(
         name='QuestionStyle',
         fontSize = 12,                        # Dimensione del carattere
@@ -27,7 +27,7 @@ def question_style_definition():
         )
     return question_style_set
 
-def bullet_style_definition():
+def bullet_style_definition() -> ParagraphStyle:
     bullet_style_set = ParagraphStyle(
         name='BulletStyle',
         fontName = 'Garamond_regular',
@@ -41,7 +41,7 @@ def bullet_style_definition():
         )
     return bullet_style_set
 
-def regular_style_definition():
+def regular_style_definition() -> ParagraphStyle:
     regular_style_set = ParagraphStyle(
         name = 'RegularStyle',
         fontName = 'Garamond_regular',        # Tipo di carattere

@@ -8,21 +8,21 @@ if __name__ == "__main__":
     print("Insert file name <file.csv>:")
     
     # The name of the file is saved in the 'file_name' variable
-    file_name = str(input())
+    file_name: str = str(input())
     
     # The name of the file is passed to the 'data_import()' function
     # The output is a pandas dataframe saved in the 'raw_data' variable
-    raw_data = data_import(file_name)
+    raw_data: DataFrame = data_import(file_name)
     
     # The list of student is extracted from the column "Q02_Leader_name"
     # More records could refere to the same student, the methode
     # 'drop_duplicates()' eliminates the names recurring more than once 
-    student_names = raw_data["Q02_Leader_name"].drop_duplicates()
+    student_names: DataFrame = raw_data["Q02_Leader_name"].drop_duplicates()
     
     # The following 'for' cycle generates the pdf files one for any student
     for student in student_names:
         # A subset dataframe 'df' is created with the records of a single student
-        df = raw_data[raw_data['Q02_Leader_name'] == student].drop_duplicates(subset='ID')
+        df: DataFrame = raw_data[raw_data['Q02_Leader_name'] == student].drop_duplicates(subset='ID')
         # The dataframe is converted in a dictionary of lists
-        data = df.to_dict(orient='list')
+        data: DataFrame = df.to_dict(orient='list')
         creapdf(data)
