@@ -1,9 +1,9 @@
 from os.path import isfile
 
-def leggi_file_csv():
+def file_validation():
     while True:
         try:
-            nome_file = input("Insert file name <file.csv>: ")
+            nome_file = input("\nInsert file name <file.csv>: ")
 
             if not nome_file:
                 raise ValueError("The file name can not be empty.")
@@ -20,9 +20,9 @@ def leggi_file_csv():
             return nome_file
         
         except ValueError as ve:
-            print(f"Error: {ve}")
+            print(f"\nError: {ve}")
         except FileNotFoundError as fe:
-            print(f"Error: {fe}")
+            print(f"\nError: {fe}")
         except Exception as e:
-            print(f"Errore sconosciuto: {e}")
+            print(f"\nError: {e}")
 
