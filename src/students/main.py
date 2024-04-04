@@ -1,8 +1,11 @@
 from pdfgen import creapdf
 from data_import import data_import
 from pandas import DataFrame
+from credits import credits
 
 if __name__ == "__main__":
+    # Print of the credits
+    credits()
     
     # The program requests the name of the csv file to convert in PDF
     print("Insert file name <file.csv>:")
