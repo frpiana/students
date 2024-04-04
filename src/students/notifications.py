@@ -11,4 +11,4 @@ def credits() -> None:
 # Terminal output to notify the successfull execution of the program
 def termination() -> None:
     print("\nProgram succesfully terminated.")
-    print("The PDF files are in the folder 'pdf'.")
+    print("The PDF files are in the folder 'pdf'.\n")
