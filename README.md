@@ -24,7 +24,7 @@ The columns of the original table should be the following:
 17. "Q08_Negative feedback"
 
 ## How to install the program
-The file _student.exe_ is in the _dist_ folder of the repository. Copy it in a folder of the hard disk, in example: _"C:\Users\user_name\Documents\executables"_. The folder names of the path should not contain any spaces.
+The file _student.exe_ can be downloaded from the [release page](https://github.com/frpiana/students/releases/) in the assets section. Copy it in a folder of the hard disk, in example: _"C:\Users\user_name\Documents\executables"_. The folder names of the path should not contain any spaces.
 
 From the start menú search for "Edit the system enviroment variables for you account".
 
