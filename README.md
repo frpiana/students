@@ -1,9 +1,9 @@
 # Program for the conversion of csv files in prose PDF
 
 ## Target of the program
-The program is designed specifically for CSV files produced by the Moodle study manangement system as survey results, in Czech langauge.
+The program is designed specifically for CSV files produced by the Moodle study manangement system as survey results, in Czech language.
 
-The columns of the original table should be the following:
+The column names of the original table should be the following:
 
 1. Odpověď
 2. Odesláno:
